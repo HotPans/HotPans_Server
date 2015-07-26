@@ -1,0 +1,31 @@
+spring:
+  profiles:
+  active: dev
+---
+spring:
+  profiles: dev
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:file:/tmp/customers;MODE=PostgreSQL
+    username: sa
+    password:
+  jpa:
+    database: H2
+    hibernate:
+      ddl-auto: create-drop
+---
+spring:
+  profiles: heroku
+  datasource:
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+      properties:
+          hibernate:
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+            hbm2ddl:
+                auto: update
+            temp:
+                use_jdbc_metadata_defaults: false
