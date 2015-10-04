@@ -54,4 +54,12 @@ public class Bakery {
     // 画像エンコーディング
     @Column(nullable = true)
     private String imageEncoding;
+
+    // ログインID
+    @Column(nullable = false)
+    private String loginId;
+
+    // ログインパスワード
+    @Column(nullable = false)
+    private String loginPassword;
 }
