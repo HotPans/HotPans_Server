@@ -39,14 +39,6 @@ public class BreadRestController {
         return bread;
     }
 
-    // パン新規登録
-//    @RequestMapping(method = RequestMethod.POST)
-//    @ResponseStatus(HttpStatus.CREATED)
-//    Bread postBread(@RequestBody Bread bread){
-//        System.out.println("★パン新規登録");
-//        return breadService.create(bread);
-//    }
-
     @RequestMapping(method = RequestMethod.POST)
     public Bread postBread(
             @RequestParam("name") String name,
@@ -80,11 +72,6 @@ public class BreadRestController {
 
         return breadService.create(bread);
     }
-
-//    @RequestMapping(method = RequestMethod.POST)
-//    public void test() {
-//        System.out.println("★test");
-//    }
 
     // パン１件更新
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)

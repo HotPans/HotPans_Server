@@ -59,7 +59,11 @@ public class Bakery {
     @Column(nullable = false)
     private String loginId;
 
-    // ログインパスワード
+    // 暗号化されたログインパスワード
     @Column(nullable = false)
-    private String loginPassword;
+    private String encodedLoginPassword;
+
+    // 認証用トークン
+    @Column(nullable = true)
+    private String tokenForCertification;
 }
