@@ -69,7 +69,7 @@ public class HotPansUtil {
     public static void main(String[] args){
         try{
             //String cipherString = generateAuthenticationKey("hotpans", "hotpansKey", "HmacSHA256");
-            String cipherString = getCipherString("password2");
+            String cipherString = getCipherString("seven.keyaki@gmail.com");
             System.out.println("暗号化された文字列：" + cipherString);
         }catch(Exception e){
             e.printStackTrace();
