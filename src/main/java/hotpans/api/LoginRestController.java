@@ -4,6 +4,7 @@ import hotpans.domain.Administrator;
 import hotpans.domain.Bakery;
 import hotpans.domain.Customer;
 import hotpans.domain.Login;
+import hotpans.domain.LoginWithGoogleAccount;
 import hotpans.service.AdministratorService;
 import hotpans.service.BakeryService;
 import hotpans.service.CustomerService;
@@ -239,5 +240,43 @@ public class LoginRestController {
             System.out.println("未ログイン");
             return false;
         }
+    }
+
+    // 管理者さんのGoogleログイン
+    @RequestMapping(value = "/administrator/GoogleAccount", method = RequestMethod.POST)
+    Administrator loginAdministratorWithGoogleAccount(@RequestBody LoginWithGoogleAccount login){
+        System.out.println("★LoginRestController#loginAdministratorWithGoogleAccount");
+        System.out.println("★login.getMailAddress: " + login.getMailAddress());
+
+        List<Administrator> administratorList = administratorService.findAll();
+
+        for(Administrator administrator : administratorList){
+            // メールアドレスが存在するかをチェック
+
+            System.out.println("★administrator.getMailAddress()=" + administrator.getMailAddress());
+
+            if(administrator.getMailAddress().equals(login.getMailAddress())){
+                System.out.println("★メールアドレスが一致する管理者発見");
+                // ログイン認証成功
+
+                // 認証トークンを生成する。
+                // ここでは、ログインIDとログインパスワードと現在日時を連結した文字列を
+                // 不可逆暗号化した文字列をトークンとする。
+                Date date = new Date();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+                String time = sdf.format(date);
+                System.out.println("★time: " + time);
+                String token = HotPansUtil.getCipherString(administrator.getId() + administrator.getEncodedLoginPassword() + time);
+                System.out.println("★Token: " + token);
+                administrator.setTokenForCertification(token);
+
+                return administratorService.update(administrator);
+            }
+        }
+
+        // ログイン認証失敗
+        Administrator administrator = new Administrator();
+        administrator.setTokenForCertification("NG");
+        return administrator;
     }
 }

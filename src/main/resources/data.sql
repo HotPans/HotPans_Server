@@ -34,16 +34,16 @@ INSERT INTO bread (name, price, introduction, bakery_id, image, image_encoding)
           FILE_READ('public/images/cream_bread.jpg'), 'data:image/jpeg;base64,');
 
 INSERT INTO administrator (name, mail_address, login_id, encoded_login_password)
-  VALUES ('makopi23', 'kipersonalpc@gmail.com', 'kipersonalpc', 'coc3+Y6up72wBP8/nbj6ERzz8C+dHDJdWzLYW8j418U=');
+  VALUES ('kipersonalpc', 'kipersonalpc@gmail.com', 'kipersonalpc@gmail.com', 'coc3+Y6up72wBP8/nbj6ERzz8C+dHDJdWzLYW8j418U=');
 
 INSERT INTO administrator (name, mail_address, login_id, encoded_login_password)
-  VALUES ('kamiya256', 'kamiya256@gmail.com', 'kamiya256', 'pzPdB/j0yXkrjRgSAq07NM2RSjmFN3cohs+YJV6FAY4=');
+  VALUES ('kamiya256', 'kamiya256@gmail.com', 'kamiya256@gmail.com', 'pzPdB/j0yXkrjRgSAq07NM2RSjmFN3cohs+YJV6FAY4=');
 
 INSERT INTO administrator (name, mail_address, login_id, encoded_login_password)
-  VALUES ('kimura.kanataku', 'kimura.kanataku@gmail.com', 'kimura.kanataku', 'IkxuC4xIa0732cJzx6bqSH4JdgVVVGw/H49oUGpVQtI=');
+  VALUES ('kimura.kanatakum', 'kimura.kanataku@gmail.com', 'kimura.kanataku@gmail.com', 'IkxuC4xIa0732cJzx6bqSH4JdgVVVGw/H49oUGpVQtI=');
 
 INSERT INTO administrator (name, mail_address, login_id, encoded_login_password)
-  VALUES ('seven.keyaki', 'seven.keyaki@gmail.com', 'seven.keyaki', 'fio3et+M8pj1SInxyA9nzHsoq3Pqi7noUAY5sDJAzk8=');
+  VALUES ('seven.keyaki', 'seven.keyaki@gmail.com', 'seven.keyaki@gmail.com', 'fio3et+M8pj1SInxyA9nzHsoq3Pqi7noUAY5sDJAzk8=');
 
 
 /*
