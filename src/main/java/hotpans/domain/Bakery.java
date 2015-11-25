@@ -54,4 +54,16 @@ public class Bakery {
     // 画像エンコーディング
     @Column(nullable = true)
     private String imageEncoding;
+
+    // ログインID
+    @Column(nullable = false)
+    private String loginId;
+
+    // 暗号化されたログインパスワード
+    @Column(nullable = false)
+    private String encodedLoginPassword;
+
+    // 認証用トークン
+    @Column(nullable = true)
+    private String tokenForCertification;
 }

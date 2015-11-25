@@ -31,23 +31,23 @@ public class CustomerRestController {
     // 顧客１件取得
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     Customer getCustomer(@PathVariable Integer id){
-        Customer bread = customerService.findOne(id);
-        return bread;
+        Customer customer = customerService.findOne(id);
+        return customer;
     }
 
     // 顧客新規登録
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    Customer postCustomer(@RequestBody Customer bread){
+    Customer postCustomer(@RequestBody Customer customer){
         System.out.println("★顧客新規登録");
-        return customerService.create(bread);
+        return customerService.create(customer);
     }
 
     // 顧客１件更新
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-    Customer putCustomer(@PathVariable Integer id, @RequestBody Customer bread){
-        bread.setId(id);
-        return customerService.update(bread);
+    Customer putCustomer(@PathVariable Integer id, @RequestBody Customer customer){
+        customer.setId(id);
+        return customerService.update(customer);
     }
 
     // 顧客１件削除

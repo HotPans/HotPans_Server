@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -12,32 +13,37 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "bread")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer {
+public class Bread {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    // 名前
+    // パンの名前
     @Column(nullable = false)
     private String name;
 
-    // メールアドレス
+    // パンの価格
     @Column(nullable = false)
-    private String mailAddress;
+    private String price;
 
-    // ログインID
+    // 紹介文
     @Column(nullable = true)
-    private String loginId;
+    private String introduction;
 
-    // 暗号化されたログインパスワード
+    // 画像
+    @Lob
     @Column(nullable = true)
-    private String encodedLoginPassword;
+    private byte[] image;
 
-    // 認証用トークン
+    // 画像エンコーディング
     @Column(nullable = true)
-    private String tokenForCertification;
+    private String imageEncoding;
+
+    // パン屋のID
+    @Column(nullable = false)
+    private Integer bakeryId;
 }
